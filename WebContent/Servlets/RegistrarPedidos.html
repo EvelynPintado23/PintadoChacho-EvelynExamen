@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Restaurante</title>
+</head>
+<body>
+	<c:set var="nombre" value="${requestScope['comida']}" />
+	<h2>Registrar Pedido</h2>
+	<form action="/PintadoChacho-EvelynExamen/RegistarPedidos" method="POST">
+		<label for="fname">Total de Comidas :</label><br> <input type="text" id="fname" name="num_comida"><br>
+		<label for="fname">Codigo:</label><br> <input type="text" id="lname" name="codigo"><br>
+		<label for="fname">Nombre:</label><br> <input type="text" id="text" name="nombre"><br>
+		<label for="fname"> Precio Unitario:</label> <br> 
+		<select name="tip" id="precio" class="custom-select mb-3">
+			<option selected>Seleccionar</option>
+			<c:forEach var="comida" items="${nombre}">
+				<option>${comida.nombre}</option>
+			</c:forEach>
+
+		</select> 
+		<input type="submit" name="RegistarComida" value="RegistarComida" >
+	</form>
+	
+</body>
+</html>
+
